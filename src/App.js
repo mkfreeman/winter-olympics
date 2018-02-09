@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { csv } from 'd3-request';
 import { Treemap } from 'react-vis';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import './App.css';
 import { Label, XAxis, YAxis, Tooltip, BarChart, Bar } from 'recharts';
 
 
@@ -112,7 +112,7 @@ class App extends Component {
         return (<div className="App">
                   <div className="container">
                     <h1>Winter Olympic Medals, 1924 - 2014</h1>
-                    <p className="lead">Data from <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/the-guardian/olympic-games/data">Kaggle</a></p>
+                    <p className="lead">Data from <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/the-guardian/olympic-games/data">Kaggle</a> (<em>count is <strong>individual medals awarded</strong>, so team events are more highly weighted</em>)</p>
                   </div>
                   <div className="container">
                     <BarChart className="chart" layout="vertical" width={ width } height={ height } data={ filteredData } margin={ { top: 5, right: 30, left: 100, bottom: 15 } }>
@@ -135,7 +135,7 @@ class App extends Component {
                       <Treemap color={ "rgb(80, 183, 188)" } title='My New Treemap' animation={ true } onLeafMouseOut={ () => this.setState({
                                                                                                                             sport: null
                                                                                                                         }) } onLeafMouseOver={ this.updateSport.bind(this) }
-                        hideRootNode={ true } data={ { children: treeData } } mode="squarify" height={ height } width={ width } />
+                        hideRootNode={ true } data={ { children: treeData } } mode="resquarify" height={ height } width={ width } />
                       <span className="treemapLabel">Medals by sport { countryText }</span>
                     </div>
                   </div>
