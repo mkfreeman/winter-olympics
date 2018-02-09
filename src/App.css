@@ -1,0 +1,44 @@
+.rv-treemap__leaf {
+    /* display: inline-block; */
+    position: absolute;
+}
+
+.rv-treemap {
+    position: relative;
+}
+
+.chart {
+    display: inline-block;
+    position: relative;
+}
+
+.treemapLabel {
+    position: absolute;
+    bottom: 0px;
+    right: 150px;
+}
+
+footer {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    z-index: 9999;
+}
+
+.footer-copyright {
+    border-top: 1px solid #d3d3d3;
+    margin-top: 10px;
+    padding: 5px;
+    opacity: .5;
+}
+
+.right {
+    float: right;
+}
+
+@media (max-width: 756px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+}
