@@ -135,7 +135,7 @@ class App extends Component {
                       <Treemap color={ "rgb(80, 183, 188)" } title='My New Treemap' animation={ true } onLeafMouseOut={ () => this.setState({
                                                                                                                             sport: null
                                                                                                                         }) } onLeafMouseOver={ this.updateSport.bind(this) }
-                        hideRootNode={ true } data={ { children: treeData } } mode="resquarify" height={ height } width={ width } />
+                        hideRootNode={ true } data={ { children: treeData } } mode="squarify" height={ height } width={ width } />
                       <span className="treemapLabel">Medals by sport { countryText }</span>
                     </div>
                   </div>
