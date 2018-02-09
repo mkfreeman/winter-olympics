@@ -2,6 +2,7 @@
     "name": "winter-olympics",
     "version": "0.1.0",
     "private": true,
+    "homepage": "http://mfviz.com/winter-olympics",
     "dependencies": {
         "bootstrap": "^4.0.0",
         "d3-request": "^1.0.6",
