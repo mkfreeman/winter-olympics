@@ -102,7 +102,7 @@ class App extends Component {
 
         // Get labels
         let countryText = this.state.country === null ? "(all countries)" : `(${this.state.country})`
-        let barLabel = this.state.sport === null ? "Total Medals" : `${this.state.sport} Medals`
+        let barLabel = this.state.sport === null ? "Total Medalists" : `${this.state.sport} Medalists`
 
         // Sizes
         let height = window.innerHeight - 150;
@@ -110,47 +110,47 @@ class App extends Component {
         let width = document.querySelector('.container') === null ? 1000 : Math.floor(document.querySelector('.container').offsetWidth / demoninator)
         // Return DOM elements 
         return (<div className="App">
-                  <div className="container">
-                    <h1>Winter Olympic Medals, 1924 - 2014</h1>
-                    <p className="lead">Data from <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/the-guardian/olympic-games/data">Kaggle</a> (<em>count is <strong>individual medals awarded</strong>, so team events are more highly weighted</em>)</p>
-                  </div>
-                  <div className="container">
-                    <BarChart className="chart" layout="vertical" width={ width } height={ height } data={ filteredData } margin={ { top: 5, right: 30, left: 100, bottom: 15 } }>
-                      <XAxis type="number">
-                        <Label value={ barLabel } offset={ -10 } position="insideBottom" />
-                      </XAxis>
-                      <YAxis type="category" dataKey="name" />
-                      <Tooltip/>
-                      <Bar onMouseOut={ () => this.setState({
-                                            country: null
-                                        }) } onMouseOver={ this.updateCountry.bind(this) } dataKey="bronze" fill="#cd7f32" stackId="a" />
-                      <Bar onMouseOut={ () => this.setState({
-                                            country: null
-                                        }) } onMouseOver={ this.updateCountry.bind(this) } dataKey="silver" fill="#c0c0c0" stackId="a" />
-                      <Bar onMouseOut={ () => this.setState({
-                                            country: null
-                                        }) } onMouseOver={ this.updateCountry.bind(this) } dataKey="gold" fill="#FFD700" stackId="a" />
-                    </BarChart>
-                    <div className="chart">
-                      <Treemap color={ "rgb(80, 183, 188)" } title='My New Treemap' animation={ true } onLeafMouseOut={ () => this.setState({
-                                                                                                                            sport: null
-                                                                                                                        }) } onLeafMouseOver={ this.updateSport.bind(this) }
-                        hideRootNode={ true } data={ { children: treeData } } mode="resquarify" height={ height } width={ width } />
-                      <span className="treemapLabel">Medals by sport { countryText }</span>
-                    </div>
-                  </div>
-                  <footer>
-                    <div className="footer-copyright">
-                      <div className="container">
+            <div className="container">
+                <h1>Winter Olympic Medalists, 1924 - 2014</h1>
+                <p className="lead">Data from <a target="_blank" rel="noopener noreferrer" href="https://www.kaggle.com/the-guardian/olympic-games/data">Kaggle</a> (<em>count is <strong>individual medals awarded</strong>, so team events are more highly weighted</em>)</p>
+            </div>
+            <div className="container">
+                <BarChart className="chart" layout="vertical" width={width} height={height} data={filteredData} margin={{ top: 5, right: 30, left: 100, bottom: 15 }}>
+                    <XAxis type="number">
+                        <Label value={barLabel} offset={-10} position="insideBottom" />
+                    </XAxis>
+                    <YAxis type="category" dataKey="name" />
+                    <Tooltip />
+                    <Bar onMouseOut={() => this.setState({
+                        country: null
+                    })} onMouseOver={this.updateCountry.bind(this)} dataKey="bronze" fill="#cd7f32" stackId="a" />
+                    <Bar onMouseOut={() => this.setState({
+                        country: null
+                    })} onMouseOver={this.updateCountry.bind(this)} dataKey="silver" fill="#c0c0c0" stackId="a" />
+                    <Bar onMouseOut={() => this.setState({
+                        country: null
+                    })} onMouseOver={this.updateCountry.bind(this)} dataKey="gold" fill="#FFD700" stackId="a" />
+                </BarChart>
+                <div className="chart">
+                    <Treemap color={"rgb(80, 183, 188)"} title='My New Treemap' animation={true} onLeafMouseOut={() => this.setState({
+                        sport: null
+                    })} onLeafMouseOver={this.updateSport.bind(this)}
+                        hideRootNode={true} data={{ children: treeData }} mode="resquarify" height={height} width={width} />
+                    <span className="treemapLabel">Medalists by sport {countryText}</span>
+                </div>
+            </div>
+            <footer>
+                <div className="footer-copyright">
+                    <div className="container">
                         © 2018 Copyright
                         <a href="http://mfviz.com/" rel="noopener noreferrer" target="_blank"> Michael Freeman</a>. Code is on <a rel="noopener noreferrer" href="https://github.com/mkfreeman/winter-olympics"
-                          target="_blank">GitHub</a>
+                            target="_blank">GitHub</a>
                         <a className="right" rel="noopener noreferrer" target="_blank" href="http://twitter.com/mf_viz">@mf_viz</a>
-                      </div>
                     </div>
-                  </footer>
                 </div>
-            );
+            </footer>
+        </div>
+        );
     }
 }
 
